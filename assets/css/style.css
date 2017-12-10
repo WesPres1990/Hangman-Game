@@ -1,0 +1,22 @@
+.container{
+    width: 100%;
+}
+
+h1{
+    margin-top: 60px;
+    font-family: 'Bree Serif', serif;
+    font-size: 68px;
+    color: white;
+    -webkit-text-stroke: 0.7px black;
+}
+
+img{
+    width: 100%;
+}
+
+p {
+	color: white;
+    text-align: center;
+    font-family: 'Vollkorn SC', serif;
+    font-size: 20px;
+}
