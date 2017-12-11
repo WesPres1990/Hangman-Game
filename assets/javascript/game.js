@@ -45,11 +45,11 @@ var gameObject = {
 	correctGuessesInOrder: [],
 
     termsArray: ["BELFAST", "SOUTHAMPTON", "LIVERPOOL", "NEW  YORK", "BOW", "STERN", "PORT", "STARBOARD", 
-    "ROBERT  BALLARD", "JAMES  CAMERON", "CAPTAIN  SMITH", "JOHN  JACOB  ASTOR", "BRUCE  ISMAY", 
-    "CUNARD", "QUEENSTOWN", "WALTER  LORD", 
-    "FIRST  CLASS", "SECOND  CLASS", "THIRD  CLASS", "SMOKESTACK", "MAST", "PROPELLOR", "HARLAND  AND  WOLFF", "HULL", "MOLLY  BROWN", "LIFEBOATS",
-    "CHERBOURG", "TITANIC", "WHITE  STAR  LINE", "MARCONI", "CARPATHIA", "NORTH  ATLANTIC",
-     "OLYMPIC", "BRITANNIC", "THOMAS  ANDREWS"],
+    "ROBERT  BALLARD", "JAMES  CAMERON", "CAPTAIN  SMITH", "JOHN  JACOB  ASTOR", "BRUCE  ISMAY", "CUNARD", "QUEENSTOWN", "WALTER  LORD", "ICEBERG", 
+    "RIVETS", "STEEL", "CROWS  NEST", "OCEAN  LINER", "PASSENGERS", "CREW", "RUDDER", "BRIDGE", "KNOTS", "VIOLET  JESSOP", 
+    "MILLVINA  DEAN", "IDA  STRAUS", "A  NIGHT  TO  REMEMBER", "DECKS","FIRST  CLASS", "SECOND  CLASS", "THIRD  CLASS", 
+    "SMOKESTACK", "MAST", "PROPELLOR", "HARLAND  AND  WOLFF", "HULL", "MOLLY  BROWN", "LIFEBOATS",
+    "CHERBOURG", "TITANIC", "WHITE  STAR  LINE", "MARCONI", "CARPATHIA", "NORTH  ATLANTIC", "OLYMPIC", "BRITANNIC", "THOMAS  ANDREWS"],
 	randomWord: "",
     termLetters:[],
 
@@ -61,8 +61,8 @@ var gameObject = {
 	winCount:0,
 
 	generateWord: function(){
-		//Random number from 0-35 for the 35 terms in the termsArray
-		var randomNum = Math.random() * 36;
+		//Random number from 0-50 for the 50 terms in the termsArray
+		var randomNum = Math.random() * 51;
 		randomNum = Math.floor(randomNum);
 
 		//randomWord is a randomly chosen word from the array and an array is created containing the individual letters of the randomly chosen words
