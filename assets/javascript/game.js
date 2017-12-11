@@ -1,3 +1,41 @@
+var userStartedGameOnce = false;
+
+//On every keyup currentLetter is converted to upper case and placed into allGuesses array; game should start when any key is pressed, but need to press twice.
+document.onkeyup = function(event) {
+	gameObject.currentLetter = String.fromCharCode(event.keyCode).toUpperCase();
+
+	if (gameObject.currentLetter == "" && userStartedGameOnce == false){
+
+		gameObject.generateWord();
+
+		userStartedGameOnce = true;
+	}
+
+	gameObject.allGuesses.push(gameObject.currentLetter);
+
+	console.log("Current Letter: " + gameObject.currentLetter + "\n" + "term Letters: " + gameObject.termLetters + "\n" + "All Guesses: " + gameObject.allGuesses);
+
+
+	//Checking to see if the letter has been typed previously and if the letter matches with one in the term name.
+	gameObject.checkRepeat();
+	gameObject.checkMatch();
+
+
+	//Which array to place the currentLetter into, depending its status.
+	gameObject.match_repeatComparison();
+
+	console.log("Correct Guesses:" + gameObject.correctGuesses);
+	console.log("Incorrect Guesses:" + gameObject.incorrectGuesses);
+	console.log("Guesses Remaining:" + gameObject.guessesRemaining);
+
+	//Term name revealed as it is being guessed.
+	gameObject.revealterm();
+	console.log(gameObject.correctGuessesInOrder);
+
+	//Checking game progress
+	gameObject.checkProgress();
+}
+
 var gameObject = {
 	currentLetter: "",
 
@@ -6,8 +44,12 @@ var gameObject = {
 	correctGuesses: [],
 	correctGuessesInOrder: [],
 
-    termsArray: ["BELFAST", "SOUTHAMPTON", "LIVERPOOL", "NEW  YORK", "BOW", "STERN", "PORT", "STARBOARD", "ROBERT  BALLARD", "JAMES  CAMERON", "CAPTAIN  SMITH", 
-    "JOHN  JACOB  ASTOR", "BRUCE  ISMAY", "CUNARD", "QUEENSTOWN", "WALTER LORD", "CHERBOURG", "TITANIC", "WHITE  STAR  LINE", "MARCONI", "CARPATHIA", "NORTH  ATLANTIC", "OLYMPIC", "BRITANNIC", "THOMAS  ANDREWS"],
+    termsArray: ["BELFAST", "SOUTHAMPTON", "LIVERPOOL", "NEW  YORK", "BOW", "STERN", "PORT", "STARBOARD", 
+    "ROBERT  BALLARD", "JAMES  CAMERON", "CAPTAIN  SMITH", "JOHN  JACOB  ASTOR", "BRUCE  ISMAY", 
+    "CUNARD", "QUEENSTOWN", "WALTER  LORD", 
+    "FIRST  CLASS", "SECOND  CLASS", "THIRD  CLASS", "SMOKESTACK", "MAST", "PROPELLOR", "HARLAND  AND  WOLFF", "HULL", "MOLLY  BROWN", "LIFEBOATS",
+    "CHERBOURG", "TITANIC", "WHITE  STAR  LINE", "MARCONI", "CARPATHIA", "NORTH  ATLANTIC",
+     "OLYMPIC", "BRITANNIC", "THOMAS  ANDREWS"],
 	randomWord: "",
     termLetters:[],
 
@@ -19,8 +61,8 @@ var gameObject = {
 	winCount:0,
 
 	generateWord: function(){
-		//Random number from 0-25 for the 25 terms in the termsArray
-		var randomNum = Math.random() * 26;
+		//Random number from 0-35 for the 35 terms in the termsArray
+		var randomNum = Math.random() * 36;
 		randomNum = Math.floor(randomNum);
 
 		//randomWord is a randomly chosen word from the array and an array is created containing the individual letters of the randomly chosen words
@@ -144,42 +186,4 @@ var gameObject = {
 			this.generateWord();
 		}
 	}
-}
-
-var userStartedGameOnce = false;
-
-//On every keyup currentLetter is converted to upper case and placed into allGuesses array; game should start when any key is pressed, but need to press twice.
-document.onkeyup = function(event) {
-	gameObject.currentLetter = String.fromCharCode(event.keyCode).toUpperCase();
-
-	if (gameObject.currentLetter == "" && userStartedGameOnce == false){
-
-		gameObject.generateWord();
-
-		userStartedGameOnce = true;
-	}
-
-	gameObject.allGuesses.push(gameObject.currentLetter);
-
-	console.log("Current Letter: " + gameObject.currentLetter + "\n" + "term Letters: " + gameObject.termLetters + "\n" + "All Guesses: " + gameObject.allGuesses);
-
-
-	//Checking to see if the letter has been typed previously and if the letter matches with one in the term name.
-	gameObject.checkRepeat();
-	gameObject.checkMatch();
-
-
-	//Which array to place the currentLetter into, depending its status.
-	gameObject.match_repeatComparison();
-
-	console.log("Correct Guesses:" + gameObject.correctGuesses);
-	console.log("Incorrect Guesses:" + gameObject.incorrectGuesses);
-	console.log("Guesses Remaining:" + gameObject.guessesRemaining);
-
-	//Term name revealed as it is being guessed.
-	gameObject.revealterm();
-	console.log(gameObject.correctGuessesInOrder);
-
-	//Checking game progress
-	gameObject.checkProgress();
 }
