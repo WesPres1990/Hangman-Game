@@ -1,22 +1,51 @@
 .container{
-    width: 100%;
+    font-family: "Times New Roman", "Times", "serif";
+    font-size: 17.5px;
+}
+
+.col-md-4 h1{
+    background: rgb(168, 107, 2);
+    padding: 20px;
 }
 
 h1{
-    margin-top: 60px;
-    font-family: 'Bree Serif', serif;
-    font-size: 68px;
-    color: white;
-    -webkit-text-stroke: 0.7px black;
-}
-
-img{
-    width: 100%;
-}
-
-p {
-	color: white;
     text-align: center;
-    font-family: 'Vollkorn SC', serif;
-    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.col-md-12 div{
+    background-color: rgb(47, 96, 233);
+    padding: 15px;
+    color: rgb(243, 247, 3);
+    font-weight: bold;
+}
+
+.col-md-3 div{
+    background: rgb(53, 224, 53);
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+}
+
+h2{
+    color: purple;
+}
+
+.col-md-2 div{
+    background: rgb(19, 199, 199);
+    margin-top: 20px;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.col-md-3 h5{
+    background: rgb(1, 66, 47);
+    color: white;
+}
+
+.col-md-3 h4{
+    background: rgb(1, 66, 47);
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+    color: white;
 }
